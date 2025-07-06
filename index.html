@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title>truckdev.nl – Development Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f9fafb;
+            color: #222;
+        }
+        header {
+            background: #263238;
+            color: #fff;
+            padding: 1.5rem 2rem 1rem 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 0.02em;
+            font-weight: 700;
+        }
+        .clock {
+            font-size: 1.2rem;
+            font-variant-numeric: tabular-nums;
+            background: #37474f;
+            padding: 0.5em 1em;
+            border-radius: 1em;
+            min-width: 8ch;
+            text-align: right;
+            margin-left: 1rem;
+            user-select: none;
+        }
+        nav {
+            margin: 2rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        nav a, nav .menu-label {
+            background: #e0e7ef;
+            color: #263238;
+            text-decoration: none;
+            padding: 0.8em 1.2em;
+            border-radius: 2em;
+            margin: 0.1em;
+            font-size: 1.1em;
+            transition: background 0.2s;
+            font-weight: 500;
+        }
+        nav a:hover {
+            background: #90caf9;
+            color: #003047;
+        }
+        nav .menu-label {
+            background: #ffd54f;
+            color: #573700;
+            cursor: default;
+            font-weight: 700;
+        }
+        main {
+            margin: 3rem auto 0 auto;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 1.5em;
+            box-shadow: 0 4px 16px 0 #22334814;
+            padding: 2em 2.5em;
+        }
+        .dev-note {
+            color: #607d8b;
+            background: #f5faff;
+            padding: 1.1em;
+            border-radius: 1em;
+            font-size: 1.12em;
+            margin-top: 1.2em;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 1em 0.8em;
+                border-radius: 0.8em;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8em;
+            }
+            .clock {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">truckdev.nl</div>
+        <div class="clock" id="clock"></div>
+    </header>
+    <nav>
+        <span class="menu-label">Menu</span>
+        <a href="#" style="pointer-events:none; opacity:0.6;">RDW data</a>
+        <a href="https://tradeworld.eu/" target="_blank" rel="noopener">Tradeworld.eu</a>
+        <a href="https://truckdelta.trucks.nl/" target="_blank" rel="noopener">truckdelta.trucks.nl</a>
+        <a href="https://trucks.nl/" target="_blank" rel="noopener">trucks.nl</a>
+        <a href="https://acc-website.trucks.nl/" target="_blank" rel="noopener">acc-website.trucks.nl</a>
+        <a href="https://acc-truckdelta.trucks.nl/" target="_blank" rel="noopener">acc-truckdelta.trucks.nl</a>
+        <a href="https://content.trucks.nl/" target="_blank" rel="noopener">content.trucks.nl</a>
+        <a href="https://acc-content.trucks.nl/" target="_blank" rel="noopener">acc-content.trucks.nl</a>
+    </nav>
+    <main>
+        <h2>Welcome to the TruckDev.nl Development Page</h2>
+        <div class="dev-note">
+            This web page is used for development and testing purposes.<br>
+            Please use the menu above to navigate to related services and environments.<br>
+            <br>
+            <strong>Note:</strong> This is <u>not</u> a production site.
+        </div>
+    </main>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, "0");
+            const m = String(now.getMinutes()).padStart(2, "0");
+            const s = String(now.getSeconds()).padStart(2, "0");
+            document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
